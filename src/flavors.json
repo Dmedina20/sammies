@@ -1,0 +1,68 @@
+[
+  {
+    "flavor": "Vanilla",
+    "ingredients": ["Cream, ", "Sugar, ", "Vanilla extract"],
+    "price": 4.99,
+    "image": "https://example.com/vanilla_ice_cream.jpg"
+  },
+  {
+    "flavor": "Chocolate",
+    "ingredients": ["Cream, ", "Sugar, ", "Cocoa powder"],
+    "price": 5.49,
+    "image": "https://example.com/chocolate_ice_cream.jpg"
+  },
+  {
+    "flavor": "Strawberry",
+    "ingredients": ["Cream, ", "Sugar, ", "Strawberries"],
+    "price": 5.29,
+    "image": "https://example.com/strawberry_ice_cream.jpg"
+  },
+  {
+    "flavor": "Mint Chocolate Chip",
+    "ingredients": ["Cream, ", "Sugar, ", "Mint extract, ", "Chocolate chips"],
+    "price": 5.99,
+    "image": "https://example.com/mint_chocolate_chip_ice_cream.jpg"
+  },
+  {
+    "flavor": "Cookie Dough",
+    "ingredients": ["Cream, ", "Sugar, ", "Cookie dough chunks"],
+    "price": 6.49,
+    "image": "https://example.com/cookie_dough_ice_cream.jpg"
+  },
+  {
+    "flavor": "Rocky Road",
+    "ingredients": [
+      "Cream, ",
+      "Sugar, ",
+      "Marshmallows, ",
+      "Chocolate, ",
+      "Almonds"
+    ],
+    "price": 6.79,
+    "image": "https://example.com/rocky_road_ice_cream.jpg"
+  },
+  {
+    "flavor": "Butter Pecan",
+    "ingredients": ["Cream, ", "Sugar, ", "Butter, ", "Pecans"],
+    "price": 6.89,
+    "image": "https://example.com/butter_pecan_ice_cream.jpg"
+  },
+  {
+    "flavor": "Coffee",
+    "ingredients": ["Cream, ", "Sugar, ", "Coffee extract"],
+    "price": 5.79,
+    "image": "https://example.com/coffee_ice_cream.jpg"
+  },
+  {
+    "flavor": "Caramel Swirl",
+    "ingredients": ["Cream, ", "Sugar, ", "Caramel swirl"],
+    "price": 6.59,
+    "image": "https://example.com/caramel_swirl_ice_cream.jpg"
+  },
+  {
+    "flavor": "Pistachio",
+    "ingredients": ["Cream, ", "Sugar, ", "Pistachio nuts"],
+    "price": 6.69,
+    "image": "https://example.com/pistachio_ice_cream.jpg"
+  }
+]
