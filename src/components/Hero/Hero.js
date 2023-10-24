@@ -19,7 +19,7 @@ function Hero() {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">SHOP NOW</button>
+            <button className="btn btn-accent">SHOP NOW</button>
           </div>
         </div>
       </div>
