@@ -9,7 +9,7 @@ function Card({ flavor, ingredients, price, image }) {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{flavor}</h2>
-          <p>Contains - {ingredients}</p>
+          <p>{ingredients}</p>
           <div className="card-actions justify-end">
             <h1 className="text-xl pr-5 pt-2">${price}</h1>
 

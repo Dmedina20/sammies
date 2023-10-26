@@ -10,19 +10,20 @@ function Products() {
   };
   return (
     <>
-      <div>
-        <h1>Products</h1>
-      </div>
-      <div className="p-6 grid grid-cols-4 gap-3">
-        {iceCreamData.slice(0, itemsToShow).map((iceCream) => (
-          <Card
-            key={iceCream.flavor}
-            flavor={iceCream.flavor}
-            ingredients={iceCream.ingredients}
-            price={iceCream.price}
-            image={iceCream.image}
-          />
-        ))}
+      <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
+        <div className="grid lg:grid-cols-4 gap-12 lg:gap-6 ">
+          {iceCreamData.slice(0, itemsToShow).map((iceCream) => (
+            <div className="w-full max-w-md mx-auto">
+              <Card
+                key={iceCream.flavor}
+                flavor={iceCream.flavor}
+                ingredients={iceCream.ingredients}
+                price={iceCream.price}
+                image={iceCream.image}
+              />
+            </div>
+          ))}
+        </div>
       </div>
       <div className="items-center text-center pb-4">
         {itemsToShow < iceCreamData.length && (

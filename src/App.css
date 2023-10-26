@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.top-wave {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.top-wave svg {
+  position: relative;
+  display: block;
+  width: calc(179% + 1.3px);
+  height: 196px;
+}
+
+.bot-wave {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.bot-wave svg {
+  position: relative;
+  display: block;
+  width: calc(161% + 1.3px);
+  height: 386px;
+}

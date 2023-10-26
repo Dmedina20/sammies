@@ -1,12 +1,15 @@
 import Hero from "../components/Hero/Hero";
 import Products from "../components/Cards/FeaturedProducts";
+import Topwave from "../components/Wave Dividers/Top-Wave";
+import Botwave from "../components/Wave Dividers/Bot-Wave";
 export default function Home() {
   return (
     <>
       <Hero />
+      <Topwave />
       <Products />
-
-      <div className="hero min-h-screen bg-base-200">
+      <Botwave />
+      <div className="hero min-h-screen bg-accent overflow-y-hidden">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src="/images/stock/photo-1635805737707-575885ab0820.jpg"
