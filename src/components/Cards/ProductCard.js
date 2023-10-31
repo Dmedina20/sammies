@@ -13,7 +13,7 @@ function Card({ flavor, ingredients, price, image }) {
           <div className="card-actions justify-end">
             <h1 className="text-xl pr-5 pt-2">${price}</h1>
 
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-accent">Buy Now</button>
           </div>
         </div>
       </div>

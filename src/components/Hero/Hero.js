@@ -2,7 +2,7 @@ import "../../App.css";
 function Hero() {
   return (
     <>
-      <div className="hero min-h-screen overflow-x-hidden bg-accent">
+      <div className="hero min-h-screen overflow-x-hidden bg-primary">
         <div className="hero-overlay bg-opacity-0"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
@@ -12,7 +12,7 @@ function Hero() {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">SHOP NOW</button>
+            <button className="btn btn-accent">SHOP NOW</button>
           </div>
         </div>
       </div>

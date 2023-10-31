@@ -27,7 +27,7 @@ function Products() {
       </div>
       <div className="items-center text-center pb-4">
         {itemsToShow < iceCreamData.length && (
-          <button className="btn btn-accent" onClick={handleShowMore}>
+          <button className="btn btn-secondary" onClick={handleShowMore}>
             More Flavors
           </button>
         )}

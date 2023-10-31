@@ -33,3 +33,19 @@
   width: calc(161% + 1.3px);
   height: 386px;
 }
+.mid-wave {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.mid-wave svg {
+  position: relative;
+  display: block;
+  width: calc(101% + 1.3px);
+  height: 46px;
+}

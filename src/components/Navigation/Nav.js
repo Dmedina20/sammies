@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 
 export default function Nav() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("customLight");
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "customDark" ? "customLight" : "customDark");
   };
   // initially set the theme and "listen" for changes to apply them to the HTML tag
   useEffect(() => {
