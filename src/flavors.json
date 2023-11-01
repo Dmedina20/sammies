@@ -39,12 +39,14 @@
       "Almonds"
     ],
     "price": 6.79,
+    "containsNuts": true,
     "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0006.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T020536Z&X-Amz-Expires=70037&X-Amz-Signature=36dbd1c179395dee1012febd55b9614cb04cc83b1130d45894fe0d669293a429&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A32%3A53%20GMT"
   },
   {
     "flavor": "Butter Pecan",
     "ingredients": ["Cream, ", "Sugar, ", "Butter, ", "Pecans"],
     "price": 6.89,
+    "containsNuts": true,
     "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0007.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T191051Z&X-Amz-Expires=8516&X-Amz-Signature=2350f2c2489b4f9d798b192cbb38f973c72b4cd722f74786d60bfe1501e12ad5&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A32%3A47%20GMT"
   },
   {
@@ -63,6 +65,7 @@
     "flavor": "Pistachio",
     "ingredients": ["Cream, ", "Sugar, ", "Pistachio nuts"],
     "price": 6.69,
+    "containsNuts": true,
     "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/31/thumbnail/0010.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T075513Z&X-Amz-Expires=48691&X-Amz-Signature=67601ed1171e0b3a441b23d4f5eb0e192f940ac9c34683a580c8469b851a25bb&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A26%3A44%20GMT"
   }
 ]

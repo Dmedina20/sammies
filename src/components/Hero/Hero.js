@@ -22,10 +22,11 @@ function Hero() {
         />
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <img src={anya} alt="anya" className=" hidden lg:block" />
+            <img src={anya} alt="anya" className=" " />
             <h1 className="sammies mb-5 text-7xl font-bold">SAMMIES</h1>
             <p className="mb-5 text-3xl">
-              The treat that brings back childhood memories
+              The <span className="underline-word">treat</span> that brings back
+              childhood memories
             </p>
             <button className="btn btn-accent">Shop Now</button>
           </div>

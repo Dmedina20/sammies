@@ -181,4 +181,8 @@ div .bubble {
 .sammies {
   position: relative;
 }
+.underline-word {
+  border-bottom: 3px solid #98fb98;
+  display: inline-block;
+}
 /*--------  Title Animation End -------- */

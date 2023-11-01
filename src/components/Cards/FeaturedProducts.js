@@ -15,11 +15,11 @@ function Products() {
     <>
       <div className="Featured-Product-Header overflow-hidden ">
         <h3 className="text-center mb-8 text-4xl font-bold ">
-          Featured Products
+          <span className="underline-word">Featured Products</span>
         </h3>
       </div>
       <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
-        <div className="grid lg:grid-cols-4 gap-12 lg:gap-6 ">
+        <div className="grid lg:grid-cols-4 grid-cols-1 gap-12 lg:gap-6 justify-center">
           {iceCreamData.slice(0, itemsToShow).map((iceCream) => (
             <div className="w-full max-w-md mx-auto">
               <Card
@@ -28,6 +28,7 @@ function Products() {
                 ingredients={iceCream.ingredients}
                 price={iceCream.price}
                 image={iceCream.image}
+                containsNuts={iceCream.containsNuts}
               />
             </div>
           ))}

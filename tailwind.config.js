@@ -1019,7 +1019,7 @@ module.exports = {
 
           success: "#99cc33",
 
-          warning: "#ffcc00",
+          warning: "#eed202",
 
           error: "#ff3333",
         },

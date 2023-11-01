@@ -1,20 +1,27 @@
+import React from "react";
 import "../../App.css";
 
-function Card({ flavor, ingredients, price, image }) {
+function Card({ flavor, ingredients, price, image, containsNuts }) {
   return (
     <>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl">
         <figure>
           <img src={image} alt="icecream" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{flavor}</h2>
+          <h2 className="card-title justify-center">{flavor}</h2>
           <p>{ingredients}</p>
-          <div className="card-actions justify-end">
-            <h1 className="text-xl pr-5 pt-2">${price}</h1>
-
+          <p className="text-2xl ">${price}</p>
+          <div className="card-actions justify-center">
             <button className="btn btn-accent">Buy Now</button>
           </div>
+          {containsNuts && (
+            <div className="card-actions justify-end">
+              <div className="badge badge-warning badge-outline">
+                Contains Nuts
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
