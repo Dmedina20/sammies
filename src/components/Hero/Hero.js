@@ -20,15 +20,15 @@ function Hero() {
           alt="bg-circles"
           className="circles w-screen h-screen hidden lg:block"
         />
-        <div className="hero-content text-center lg:text-left text-neutral-content">
+        <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Sammies</h1>
-            <p className="mb-5">
+            <img src={anya} alt="anya" className=" hidden lg:block" />
+            <h1 className="sammies mb-5 text-7xl font-bold">SAMMIES</h1>
+            <p className="mb-5 text-3xl">
               The treat that brings back childhood memories
             </p>
             <button className="btn btn-accent">Shop Now</button>
           </div>
-          <img src={anya} alt="anya" className="content-end hidden lg:block" />
         </div>
       </div>
     </>

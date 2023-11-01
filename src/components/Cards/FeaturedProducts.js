@@ -6,7 +6,10 @@ import { useState } from "react";
 function Products() {
   const [itemsToShow, setItemsToShow] = useState(4);
   const handleShowMore = () => {
-    setItemsToShow((prevItems) => prevItems + 10); // Show 3 more items when the "Show More" button is clicked
+    setItemsToShow((prevItems) => prevItems + 10);
+  };
+  const handleShowLess = () => {
+    setItemsToShow(4);
   };
   return (
     <>
@@ -31,9 +34,20 @@ function Products() {
         </div>
       </div>
       <div className="items-center text-center pb-4">
-        {itemsToShow < iceCreamData.length && (
-          <button className="btn btn-secondary" onClick={handleShowMore}>
-            More Flavors
+        {itemsToShow < iceCreamData.length ? (
+          <>
+            <button className="btn btn-secondary" onClick={handleShowMore}>
+              More Flavors
+            </button>
+            {itemsToShow > 4 && (
+              <button className="btn btn-accent ml-2" onClick={handleShowLess}>
+                Show Less
+              </button>
+            )}
+          </>
+        ) : (
+          <button className="btn btn-accent" onClick={handleShowLess}>
+            Show Less
           </button>
         )}
       </div>
