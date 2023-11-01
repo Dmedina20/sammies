@@ -25,8 +25,8 @@ function Hero() {
             <img src={anya} alt="anya" className=" " />
             <h1 className="sammies mb-5 text-7xl font-bold">SAMMIES</h1>
             <p className="mb-5 text-3xl">
-              The <span className="underline-word">treat</span> that brings back
-              childhood memories
+              The <span className="underline-word font-bold">treat</span> that
+              brings back childhood memories
             </p>
             <button className="btn btn-accent">Shop Now</button>
           </div>
