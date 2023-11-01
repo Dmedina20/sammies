@@ -62,13 +62,11 @@ function Hero() {
         />
         <div className="hero-content text-center lg:text-left text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+            <h1 className="mb-5 text-5xl font-bold">Sammies</h1>
             <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              The treat that brings back childhood memories
             </p>
-            <button className="btn btn-accent">SHOP NOW</button>
+            <button className="btn btn-accent">Shop Now</button>
           </div>
           <img src={anya} alt="anya" className="content-end hidden lg:block " />
         </div>
