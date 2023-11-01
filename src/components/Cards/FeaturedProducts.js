@@ -10,6 +10,11 @@ function Products() {
   };
   return (
     <>
+      <div className="Featured-Product-Header overflow-hidden ">
+        <h3 className="text-center mb-8 text-4xl font-bold ">
+          Featured Products
+        </h3>
+      </div>
       <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
         <div className="grid lg:grid-cols-4 gap-12 lg:gap-6 ">
           {iceCreamData.slice(0, itemsToShow).map((iceCream) => (
