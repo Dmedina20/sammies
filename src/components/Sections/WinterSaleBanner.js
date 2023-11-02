@@ -1,18 +1,14 @@
 import "../../App.css";
-import helping from "../../images/helping.png";
+import Winter from "../../images/Winter.png";
 
-function Learn() {
+function WinterSale() {
   return (
     <>
-      <div className="hero min-w-screen bg-primary overflow-y-hidden">
-        <div className="hero-content  lg:grid lg:grid-cols-2 lg:gap-10">
-          <img src={helping} alt="helping hands" className="hidden lg:block" />
+      <div className="hero min-w-screen bg-primary">
+        <img src={Winter} alt="helping hands" className="h-full" />
+        <div className="hero-content lg:grid lg:grid-cols-2 lg:gap-10">
           <div>
-            <img
-              src={helping}
-              alt="helping hands"
-              className="block lg:hidden"
-            />
+            {/* 
             <h1 className=" text-center mb-8 text-3xl lg:text-5xl font-bold text-neutral-content">
               Learn Our <span className="underline-word">Values</span>!
             </h1>
@@ -20,11 +16,12 @@ function Learn() {
               We build awareness and support for the social & environmental
               issues that we feel strongly about. Find out how you can help.
             </p>
-            <div className="hero-content justify-center">
+            <div className=" hero-content justify-right">
               <button className="btn btn-accent lg:font-bold">
                 Learn More
               </button>
             </div>
+            */}
           </div>
         </div>
       </div>
@@ -32,4 +29,4 @@ function Learn() {
   );
 }
 
-export default Learn;
+export default WinterSale;

@@ -39,10 +39,13 @@ export default function Nav() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/About">About</Link>
+              <Link to="/products">Products</Link>
             </li>
             <li>
-              <Link to="/Contact">Contact</Link>
+              <Link to="/about-us">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>

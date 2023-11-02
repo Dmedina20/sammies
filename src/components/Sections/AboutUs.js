@@ -1,7 +1,7 @@
 import "../../App.css";
 import helping from "../../images/helping.png";
 
-function Learn() {
+function AboutUs() {
   return (
     <>
       <div className="hero min-w-screen bg-primary overflow-y-hidden">
@@ -32,4 +32,4 @@ function Learn() {
   );
 }
 
-export default Learn;
+export default AboutUs;

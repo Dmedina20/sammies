@@ -1,6 +1,7 @@
 import "../../App.css";
 import anya from "../../images/anya.png";
 import circles from "../../images/circles.svg";
+import { Link } from "react-router-dom";
 const Bubble = () => <span className="bubble"></span>;
 function Hero() {
   return (
@@ -28,7 +29,9 @@ function Hero() {
               The <span className="underline-word font-bold">treat</span> that
               brings back childhood memories
             </p>
-            <button className="btn btn-accent">Shop Now</button>
+            <button className="btn btn-accent">
+              <Link to="/products">Shop Now</Link>
+            </button>
           </div>
         </div>
       </div>
