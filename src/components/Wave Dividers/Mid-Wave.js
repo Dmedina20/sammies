@@ -3,7 +3,7 @@ import "../../App.css";
 function MidWave() {
   return (
     <>
-      <div className="mid-wave  ">
+      <div className="mid-wave ">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

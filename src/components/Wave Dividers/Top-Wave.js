@@ -3,7 +3,7 @@ import "../../App.css";
 function TopWave() {
   return (
     <>
-      <div className="top-wave overflow-y-hidden ">
+      <div className="top-wave  z-1 overflow-y-hidden overflow-x-hidden ">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

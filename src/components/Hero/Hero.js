@@ -6,7 +6,7 @@ const Bubble = () => <span className="bubble"></span>;
 function Hero() {
   return (
     <>
-      <div className="hero min-h-screen overflow-x-hidden bg-primary">
+      <div className="hero min-h-screen overflow-x-hidden overflow-y-hidden bg-primary">
         <div className="hero-overlay bg-opacity-0">
           <div className="bubbles w-screen h-screen overflow-hidden">
             {[...Array(15)].map((_, index) => (
