@@ -10,7 +10,7 @@ function Reviews({ text, name, title, image }) {
 
         <footer className="flex items-center gap-3 mt-6 md:mt-12">
           <img
-            className="flex-shrink-0 w-12 h-12 border rounded-full border-black/10"
+            className=" w-12 h-12 border rounded-full border-black/10"
             src={image}
             alt="pic"
             loading="lazy"

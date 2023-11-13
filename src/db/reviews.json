@@ -8,16 +8,16 @@
   },
   {
     "id": 2,
-    "name": "Olivia Anderson",
+    "name": "Armando Fernandez",
     "title": "Customer",
     "text": " The chocolate was rich and indulgent, hitting that perfect balance between sweet and decadent. It's clear that Sammies puts a lot of thought into their flavors.",
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231025T231042Z&X-Amz-Expires=80154&X-Amz-Signature=dd744cceb17b1ed58e0bc57db16fa69daf23975e2cb545f17fa0f8166e3a7495&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A26%3A36%20GMT"
+    "image": "https://cdn.discordapp.com/attachments/1075149588471754772/1173713216682074122/20230119_111109.jpg?ex=6564f49d&is=65527f9d&hm=396df90aefdce35745a96374b78d540c810abbb908704ad13ab695d68b7a0003&"
   },
   {
     "id": 3,
-    "name": "Ethan Martinez",
+    "name": "Melody Chong",
     "title": "Customer",
     "text": "What really stood out to me was the attention to detail. The packaging was not only cute but also practical, keeping the ice cream perfectly frozen during transit. Plus, they included a handwritten note, adding a personal touch that made the experience feel special.",
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0003.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T143437Z&X-Amz-Expires=25560&X-Amz-Signature=da6f41bee790f5e6b9046bae6501d0d215c59335ffd3c99e8134be0c70ded3ee&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A40%3A37%20GMT"
+    "image": "https://cdn.discordapp.com/attachments/1151017696524242995/1173714827840065547/IMG_6490.JPG?ex=6564f61d&is=6552811d&hm=6874d2df01ab4c2b273814b71803615a7f10628f72472c2dd71676e1d04219b9&"
   }
 ]
