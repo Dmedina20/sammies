@@ -1,6 +1,6 @@
 import "../../App.css";
 import Card from "./ProductCard";
-import iceCreamData from "../../seasonalFlavors.json";
+import iceCreamData from "../../db/seasonalFlavors.json";
 import { useState } from "react";
 
 function Products() {

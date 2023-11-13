@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Reia Lucio",
+    "title": "Customer",
+    "text": "I recently tried out Sammies, an online ice cream shop, and I've got to say it's become my new go-to for satisfying those sweet cravings. Ordering was a breeze – their website is user-friendly, and the selection of flavors is downright impressive.",
+    "image": "https://scontent.ftpa1-2.fna.fbcdn.net/v/t39.30808-6/379782637_7509593622388484_5367025781965043919_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ovmu1fmXfJsAX88KqdH&_nc_ht=scontent.ftpa1-2.fna&oh=00_AfAC4MrHgFfXyW3YPhMeXXzx5XjUGP5KO5y9_4jKUoMgqg&oe=6557B960"
+  },
+  {
+    "id": 2,
+    "name": "Olivia Anderson",
+    "title": "Customer",
+    "text": " The chocolate was rich and indulgent, hitting that perfect balance between sweet and decadent. It's clear that Sammies puts a lot of thought into their flavors.",
+    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231025T231042Z&X-Amz-Expires=80154&X-Amz-Signature=dd744cceb17b1ed58e0bc57db16fa69daf23975e2cb545f17fa0f8166e3a7495&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A26%3A36%20GMT"
+  },
+  {
+    "id": 3,
+    "name": "Ethan Martinez",
+    "title": "Customer",
+    "text": "What really stood out to me was the attention to detail. The packaging was not only cute but also practical, keeping the ice cream perfectly frozen during transit. Plus, they included a handwritten note, adding a personal touch that made the experience feel special.",
+    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0003.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T143437Z&X-Amz-Expires=25560&X-Amz-Signature=da6f41bee790f5e6b9046bae6501d0d215c59335ffd3c99e8134be0c70ded3ee&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A40%3A37%20GMT"
+  }
+]

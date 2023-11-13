@@ -383,3 +383,10 @@ div .bubble {
   }
 }
 /*--------  Icecream Animation End -------- */
+.swiper {
+  height: 400px;
+}
+.swiper-pagination-bullet {
+  background-color: #98FB98 !important;
+
+}
