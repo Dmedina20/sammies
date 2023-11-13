@@ -6,7 +6,7 @@ function Card({ flavor, ingredients, price, image, containsNuts }) {
     <>
       <div className="card bg-base-100 shadow-xl">
         <figure>
-          <img src={image} alt="icecream" />
+          <img loading="lazy" src={image} alt="icecream" />
         </figure>
         <div className="card-body">
           <h2 className="card-title justify-left">{flavor}</h2>
