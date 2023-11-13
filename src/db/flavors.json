@@ -3,31 +3,31 @@
     "flavor": "Vanilla",
     "ingredients": ["Cream, ", "Sugar, ", "Vanilla extract"],
     "price": 4.99,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0002.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T054054Z&X-Amz-Expires=59273&X-Amz-Signature=15f8b5d9b3f9366144a6605745d638f664e955082259acda86abab1a24d63b6e&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2022%3A08%3A47%20GMT"
+    "image": "https://i.imgur.com/xNq7ZU3.png"
   },
   {
     "flavor": "Chocolate",
     "ingredients": ["Cream, ", "Sugar, ", "Cocoa powder"],
     "price": 5.49,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231025T231042Z&X-Amz-Expires=80154&X-Amz-Signature=dd744cceb17b1ed58e0bc57db16fa69daf23975e2cb545f17fa0f8166e3a7495&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A26%3A36%20GMT"
+    "image": "https://i.imgur.com/CmjgnIZ.png"
   },
   {
     "flavor": "Strawberry",
     "ingredients": ["Cream, ", "Sugar, ", "Strawberries"],
     "price": 5.29,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0003.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T143437Z&X-Amz-Expires=25560&X-Amz-Signature=da6f41bee790f5e6b9046bae6501d0d215c59335ffd3c99e8134be0c70ded3ee&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A40%3A37%20GMT"
+    "image": "https://i.imgur.com/RgkFfOp.png"
   },
   {
     "flavor": "Mint Chocolate Chip",
     "ingredients": ["Cream, ", "Sugar, ", "Mint extract, ", "Chocolate chips"],
     "price": 5.99,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0004.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T164537Z&X-Amz-Expires=18432&X-Amz-Signature=2fd796c4a4a825ef19088441500d24d739dcc1cdf2a8fe0fc08a6ef3c6fec6cb&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A52%3A49%20GMT"
+    "image": "https://i.imgur.com/IwpQAHn.png"
   },
   {
     "flavor": "Cookie Dough",
     "ingredients": ["Cream, ", "Sugar, ", "Cookie dough chunks"],
     "price": 6.49,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0005.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T080942Z&X-Amz-Expires=48518&X-Amz-Signature=2240d9e6876bdf935bf8cb62da78a08215a7cb294dd1698efdab143f0da84474&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A38%3A20%20GMT"
+    "image": "https://i.imgur.com/PWuwRBr.png"
   },
   {
     "flavor": "Rocky Road",
@@ -40,32 +40,32 @@
     ],
     "price": 6.79,
     "containsNuts": true,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0006.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T020536Z&X-Amz-Expires=70037&X-Amz-Signature=36dbd1c179395dee1012febd55b9614cb04cc83b1130d45894fe0d669293a429&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A32%3A53%20GMT"
+    "image": "https://i.imgur.com/2yzPCUj.png"
   },
   {
     "flavor": "Butter Pecan",
     "ingredients": ["Cream, ", "Sugar, ", "Butter, ", "Pecans"],
     "price": 6.89,
     "containsNuts": true,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/29/thumbnail/0007.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T191051Z&X-Amz-Expires=8516&X-Amz-Signature=2350f2c2489b4f9d798b192cbb38f973c72b4cd722f74786d60bfe1501e12ad5&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A32%3A47%20GMT"
+    "image": "https://i.imgur.com/WUmhPDZ.png"
   },
   {
     "flavor": "Coffee",
     "ingredients": ["Cream, ", "Sugar, ", "Coffee extract"],
     "price": 5.79,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/31/thumbnail/0008.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T162322Z&X-Amz-Expires=18042&X-Amz-Signature=fcd5f1c7d3e0cf23377c27c33bcbe9e8b7e016e4c6737bc38924f157d427f73c&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A24%3A04%20GMT"
+    "image": "https://i.imgur.com/kjKcYT5.png"
   },
   {
     "flavor": "Caramel Swirl",
     "ingredients": ["Cream, ", "Sugar, ", "Caramel swirl"],
     "price": 6.59,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/31/thumbnail/0009.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T055359Z&X-Amz-Expires=58735&X-Amz-Signature=c282e0ff951c0a633b221d356a228c54640f286d5d4226a3d2b2168e6ab1b845&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2022%3A12%3A54%20GMT"
+    "image": "https://i.imgur.com/Y0r64rU.png"
   },
   {
     "flavor": "Pistachio",
     "ingredients": ["Cream, ", "Sugar, ", "Pistachio nuts"],
     "price": 6.69,
     "containsNuts": true,
-    "image": "https://document-export.canva.com/cTm40/DAFyJicTm40/31/thumbnail/0010.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T075513Z&X-Amz-Expires=48691&X-Amz-Signature=67601ed1171e0b3a441b23d4f5eb0e192f940ac9c34683a580c8469b851a25bb&X-Amz-SignedHeaders=host&response-expires=Thu%2C%2026%20Oct%202023%2021%3A26%3A44%20GMT"
+    "image": "https://i.imgur.com/1wQWLP5.png"
   }
 ]
