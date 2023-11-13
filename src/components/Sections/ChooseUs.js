@@ -8,7 +8,6 @@ function ChooseUs() {
         <h3 className="text-center mb-8 text-4xl font-bold ">
           <p>
             Welcome to <span className="font-bold underline-word">SAMMIES</span>
-            ,{" "}
           </p>
         </h3>
       </div>
