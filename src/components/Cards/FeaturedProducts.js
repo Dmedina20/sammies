@@ -1,6 +1,6 @@
 import "../../App.css";
 import Card from "./ProductCard";
-import iceCreamData from "../../db/flavors.json";
+import { products } from "../../app/constants/products";
 import { useState } from "react";
 
 function Products() {
@@ -20,22 +20,15 @@ function Products() {
       </div>
       <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-12 lg:gap-6 justify-center">
-          {iceCreamData.slice(0, itemsToShow).map((iceCream) => (
+          {products.slice(0, itemsToShow).map((item) => (
             <div className="w-full max-w-md mx-auto">
-              <Card
-                key={iceCream.flavor}
-                flavor={iceCream.flavor}
-                ingredients={iceCream.ingredients}
-                price={iceCream.price}
-                image={iceCream.image}
-                containsNuts={iceCream.containsNuts}
-              />
+              <Card item={item} />
             </div>
           ))}
         </div>
       </div>
       <div className="items-center text-center pb-4">
-        {itemsToShow < iceCreamData.length ? (
+        {itemsToShow < products.length ? (
           <>
             <button className="btn btn-secondary" onClick={handleShowMore}>
               More Flavors
