@@ -1,12 +1,12 @@
 import React from "react";
 
-export const CartItem = ({ item }) => {
+const CartItem = ({ item }) => {
   return (
     <li key={item.id} className="flex py-6">
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <img
           src={item.image}
-          alt="product img"
+          alt={item.name}
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -17,7 +17,7 @@ export const CartItem = ({ item }) => {
             <h3>
               <a href={item.href}>{item.name}</a>
             </h3>
-            <p className="ml-4">{item.price}</p>
+            <p className="ml-4">${item.price}</p>
           </div>
           <p className="mt-1 text-sm text-gray-500">{item.color}</p>
         </div>
@@ -37,3 +37,4 @@ export const CartItem = ({ item }) => {
     </li>
   );
 };
+export default CartItem;

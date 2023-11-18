@@ -2,6 +2,7 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
+import CartItem from "../Cards/CartItem";
 
 export default function Nav() {
   const [theme, setTheme] = useState("customLight");
@@ -138,47 +139,56 @@ export default function Nav() {
               className="drawer-overlay"
             ></label>
             <div className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
-              test
+              <div className="mt-8">
+                <div className="flow-root">
+                  <ul role="list" className="-my-6 divide-y divide-gray-200">
+                    {/*  {products.map((product) => (
+                      <CartItem />
+                    ))}  */}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Cart Button End */}
-        {/* Account Button */}
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      {/* Cart Button End */}
+      {/* Account Button */}
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
           >
-            <li>
-              <a>Profile</a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
-        {/* Account Button End */}
-        {/* <button className="btn btn-ghost btn-circle">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+            />
+          </svg>
+        </label>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <a>Profile</a>
+          </li>
+          <li>
+            <a>Settings</a>
+          </li>
+          <li>
+            <a>Logout</a>
+          </li>
+        </ul>
+      </div>
+      {/* Account Button End */}
+      {/* <button className="btn btn-ghost btn-circle">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +207,6 @@ export default function Nav() {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button> */}
-      </div>
     </div>
   );
 }
