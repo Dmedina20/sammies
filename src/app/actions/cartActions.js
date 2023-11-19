@@ -11,7 +11,7 @@ import {
   CART_ITEM_UPDATE_REQUEST,
   CART_ITEM_UPDATE_SUCCESS,
   CART_ITEM_UPDATE_FAIL,
-} from "../constants/cartConstants";
+} from "../constants/CartConstants";
 import db from "../../firebase/config";
 import nextId from "react-id-generator";
 import {
@@ -23,11 +23,12 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
+import { showSuccessAlert, showErrorAlert } from "./AlertActions";
 
 export const listCartItems = () => async (dispatch) => {
   let cartData = [];
   async function getCartItems(db) {
-    const cartCol = collection(db, "Regular Flavors");
+    const cartCol = collection(db, "cartItems");
     const cartSnapshot = await getDocs(cartCol);
     const cartList = cartSnapshot.docs.map((doc) => doc.data());
     return cartList;
@@ -58,13 +59,13 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
       type: CART_ITEM_ADD_REQUEST,
     });
 
-    const cartItemRef = doc(db, "Regular Flavors", newItemId);
+    const cartItemRef = doc(db, "cartItems", newItemId);
 
     const docSnap = await getDoc(cartItemRef);
 
     if (docSnap.exists()) {
       const existItem = docSnap.data();
-      alert(existItem.title + " already in cart");
+      dispatch(showErrorAlert(`${existItem.name} already in cart`));
       dispatch({
         type: CART_ITEM_ADD_SUCCESS,
         payload: existItem,
@@ -72,14 +73,22 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
-      await setDoc(doc(db, "Regular Flavors", newItemId), {
+      const cartItemData = {
         id: newItemId,
-        title: new_cart_item.title,
-        price: new_cart_item.price,
-        image: new_cart_item.image,
+        name: new_cart_item.name || "", // Default to an empty string if undefined
+        ingredients: new_cart_item.ingredients || "",
+        price: new_cart_item.price || 0, // Default to 0 if undefined
+        containsNuts: new_cart_item.containsNuts || false, // Default to false if undefined
+        image: new_cart_item.image || "",
         qtyInCart: 1,
-      });
-      alert("Item" + new_cart_item.title + " successfully added");
+      };
+      await setDoc(doc(db, "cartItems", newItemId), cartItemData);
+
+      dispatch(
+        showSuccessAlert(
+          `${new_cart_item.name} Icecream was successfully added to the cart!`
+        )
+      );
 
       dispatch({
         type: CART_ITEM_ADD_SUCCESS,
@@ -87,7 +96,7 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
       });
     }
   } catch (error) {
-    alert("Failed To Add " + new_cart_item.title + error);
+    dispatch(showErrorAlert(`Failed To Add ${new_cart_item.name} ${error}`));
     dispatch({
       type: CART_ITEM_ADD_FAIL,
       payload:
@@ -104,7 +113,7 @@ export const updateCartQty = (cart_item_id, qty) => async (dispatch) => {
       type: CART_ITEM_UPDATE_REQUEST,
     });
 
-    await updateDoc(doc(db, "Regular Flavors", cart_item_id), {
+    await updateDoc(doc(db, "cartItems", cart_item_id), {
       qtyInCart: qty,
     });
 
@@ -122,13 +131,13 @@ export const updateCartQty = (cart_item_id, qty) => async (dispatch) => {
   }
 };
 
-export const deleteItemFromCart = (cart_item_id) => async (dispatch) => {
+export const deleteItemFromCart = (cart_item_name) => async (dispatch) => {
   try {
     dispatch({ type: CART_ITEM_REMOVE_REQUEST });
 
-    await deleteDoc(doc(db, "Regular Flavors", cart_item_id));
+    await deleteDoc(doc(db, "cartItems", cart_item_name));
 
-    alert(cart_item_id + " was successfully deleted");
+    alert(cart_item_name + " was successfully deleted");
 
     window.location.reload();
 

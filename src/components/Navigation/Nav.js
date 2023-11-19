@@ -3,8 +3,20 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import CartItem from "../Cards/CartItem";
+import { useDispatch, useSelector } from "react-redux";
+import { listCartItems } from "../../app/actions/CartActions";
 
 export default function Nav() {
+  const dispatch = useDispatch();
+
+  const cartItemsList = useSelector((state) => state.cartItemsList);
+
+  const { loading, error, cartItems } = cartItemsList;
+
+  useEffect(() => {
+    dispatch(listCartItems());
+  }, [dispatch]);
+
   const [theme, setTheme] = useState("customLight");
   const toggleTheme = () => {
     setTheme(theme === "customDark" ? "customLight" : "customDark");
@@ -109,7 +121,7 @@ export default function Nav() {
         </label>
         {/* Light/Dark Toggle Button End */}
         {/* Cart Button */}
-        <div className="drawer w-auto drawer-end z-40">
+        <div className="drawer w-auto drawer-end z-30">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label
@@ -138,13 +150,14 @@ export default function Nav() {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <div className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
+            <div className=" p-4 w-80 min-h-full bg-base-100 text-base-content">
               <div className="mt-8">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {/*  {products.map((product) => (
-                      <CartItem />
-                    ))}  */}
+                    {cartItems &&
+                      cartItems.map((item) => (
+                        <CartItem item={item} key={item.id} />
+                      ))}
                   </ul>
                 </div>
               </div>

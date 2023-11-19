@@ -4,13 +4,15 @@ import {
   applyMiddleware,
 } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-import { listCartItemsReducer } from "./reducers/cartReducer";
-import { productListReducer } from "./reducers/productReducer";
+import { listCartItemsReducer } from "./reducers/CartReducer";
+import { productListReducer } from "./reducers/ProductReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import AlertReducer from "./reducers/AlertReducer";
 
 const reducers = combineReducers({
   cartItemsList: listCartItemsReducer,
   productsList: productListReducer,
+  alert: AlertReducer,
 });
 const initialState = {};
 const middleware = [thunk];

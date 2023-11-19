@@ -2,17 +2,17 @@ import "../../App.css";
 import Card from "./ProductCard";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listCartItems } from "../../app/actions/cartActions";
+import { listProducts } from "../../app/actions/ProductActions";
 
 function Products() {
   const dispatch = useDispatch();
 
-  const cartItemsList = useSelector((state) => state.cartItemsList);
+  const productsList = useSelector((state) => state.productsList);
 
-  const { loading, error, cartItems } = cartItemsList;
+  const { loading, error, products } = productsList;
 
   useEffect(() => {
-    dispatch(listCartItems());
+    dispatch(listProducts());
   }, [dispatch]);
 
   const [itemsToShow, setItemsToShow] = useState(4);
@@ -31,8 +31,8 @@ function Products() {
       </div>
       <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-12 lg:gap-6 justify-center">
-          {cartItems &&
-            cartItems.slice(0, itemsToShow).map((item) => (
+          {products &&
+            products.slice(0, itemsToShow).map((item) => (
               <div className="w-full max-w-md mx-auto">
                 <Card item={item} />
               </div>
@@ -40,7 +40,7 @@ function Products() {
         </div>
       </div>
       <div className="items-center text-center pb-4">
-        {cartItems && itemsToShow < cartItems.length ? (
+        {products && itemsToShow < products.length ? (
           <>
             <button className="btn btn-secondary" onClick={handleShowMore}>
               More Flavors

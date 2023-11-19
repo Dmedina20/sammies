@@ -6,6 +6,7 @@ import MidWave from "../components/Wave Dividers/Mid-Wave";
 import Learn from "../components/Sections/LearnAboutUs";
 import ChooseUs from "../components/Sections/ChooseUs";
 import Testimonials from "../components/Sections/Testimonials";
+
 export default function Home() {
   return (
     <>

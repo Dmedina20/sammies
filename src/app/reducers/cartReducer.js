@@ -5,7 +5,7 @@ import {
   CART_LIST_REQUEST,
   CART_LIST_SUCCESS,
   CART_LIST_FAIL,
-} from "../constants/cartConstants";
+} from "../constants/CartConstants";
 
 export const listCartItemsReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {

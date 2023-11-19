@@ -17,8 +17,8 @@ Welcome to SAMMIES, your virtual haven for a delectable ice cream experience! SA
 - React.js: A JavaScript library for building user interfaces based on components.
 - TailwindCSS: An open source CSS framework
 - Node.js: Empowers server-side functionality, contributing to the overall robustness of the application.
-- Redux: A JavaScript library for managing and centralizing application state. (Soon as of 10/13/2023)
-- Firebase: Provides a real-time database and authentication services, ensuring a secure and dynamic user experience. (Soon as of 10/13/2023)
+- Redux: A JavaScript library for managing and centralizing application state.
+- Firebase: Provides a real-time database and authentication services, ensuring a secure and dynamic user experience.
 
 ## Getting Started
 
