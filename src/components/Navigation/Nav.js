@@ -136,7 +136,7 @@ export default function Nav() {
         </label>
         {/* Light/Dark Toggle Button End */}
         {/* Cart Button */}
-        <div className="drawer lg:w-auto w-[60px] drawer-end z-40 ">
+        <div className="drawer drawer-end lg:w-auto w-[60px] z-40 ">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label
@@ -164,13 +164,13 @@ export default function Nav() {
               )}
             </label>
           </div>
-          <div className="drawer-side fixed ">
+          <div className="drawer-side">
             <label
               htmlFor="my-drawer2"
               aria-label="close sidebar"
-              className="drawer-overlay drawer-end"
+              className="drawer-overlay"
             ></label>
-            <div className="p-4 lg:w-90 min-h-screen  fixed bg-base-100 text-base-content fixed no-scrollbar ">
+            <div className="p-4 lg:w-90 min-h-screen bg-base-100 text-base-content no-scrollbar ">
               <div className="mt-1">
                 <div className=" ">
                   {cartItems.length === 0 ? (
