@@ -9,7 +9,7 @@ function Products() {
 
   const productsList = useSelector((state) => state.productsList);
 
-  const { loading, error, products } = productsList;
+  const { products } = productsList;
 
   useEffect(() => {
     dispatch(listProducts());
@@ -29,7 +29,10 @@ function Products() {
           <span className="underline-word">Featured Products</span>
         </h3>
       </div>
-      <div className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center">
+      <div
+        id="featured"
+        className=" overflow-x-hidden py-12 lg:flex lg:justify-center lg:items-center"
+      >
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-12 lg:gap-6 justify-center">
           {products &&
             products.slice(0, itemsToShow).map((item) => (
@@ -42,12 +45,15 @@ function Products() {
       <div className="items-center text-center pb-4">
         {products && itemsToShow < products.length ? (
           <>
-            <button className="btn btn-secondary" onClick={handleShowMore}>
+            <button
+              className="btn btn-secondary hover:btn-primary"
+              onClick={handleShowMore}
+            >
               More Flavors
             </button>
             {itemsToShow > 4 && (
               <button
-                className="btn btn-secondary btn-outline"
+                className="btn btn-primary hover:btn-accent btn-outline"
                 onClick={handleShowLess}
               >
                 Show Less
@@ -56,7 +62,7 @@ function Products() {
           </>
         ) : (
           <button
-            className="btn btn-secondary btn-outline"
+            className="btn btn-primary hover:btn-accent btn-outline"
             onClick={handleShowLess}
           >
             Show Less

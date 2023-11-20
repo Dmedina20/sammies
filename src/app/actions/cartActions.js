@@ -71,14 +71,13 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
         payload: existItem,
       });
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
       const cartItemData = {
         id: newItemId,
-        name: new_cart_item.name || "", // Default to an empty string if undefined
+        name: new_cart_item.name || "",
         ingredients: new_cart_item.ingredients || "",
-        price: new_cart_item.price || 0, // Default to 0 if undefined
-        containsNuts: new_cart_item.containsNuts || false, // Default to false if undefined
+        price: new_cart_item.price || 0,
+        containsNuts: new_cart_item.containsNuts || false,
         image: new_cart_item.image || "",
         qtyInCart: 1,
       };
@@ -137,7 +136,7 @@ export const deleteItemFromCart = (cart_item_name) => async (dispatch) => {
 
     await deleteDoc(doc(db, "cartItems", cart_item_name));
 
-    alert(cart_item_name + " was successfully deleted");
+    dispatch(showErrorAlert(` has been removed`));
 
     window.location.reload();
 

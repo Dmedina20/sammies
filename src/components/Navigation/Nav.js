@@ -5,25 +5,37 @@ import logo from "../../images/logo.png";
 import CartItem from "../Cards/CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { listCartItems } from "../../app/actions/CartActions";
+import peeker from "../../images/anyaPeeker.png";
 
 export default function Nav() {
   const dispatch = useDispatch();
-
   const cartItemsList = useSelector((state) => state.cartItemsList);
+  const { cartItems } = cartItemsList;
+  const [theme, setTheme] = useState("customLight");
+  const cartItemsCount = cartItems.length;
 
-  const { loading, error, cartItems } = cartItemsList;
+  const toggleTheme = () => {
+    setTheme(theme === "customDark" ? "customLight" : "customDark");
+  };
 
   useEffect(() => {
     dispatch(listCartItems());
   }, [dispatch]);
 
-  const [theme, setTheme] = useState("customLight");
-  const toggleTheme = () => {
-    setTheme(theme === "customDark" ? "customLight" : "customDark");
-  };
+  useEffect(() => {
+    dispatch(listCartItems());
+  }, [dispatch, cartItems]);
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
+
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.qtyInCart,
+      0
+    );
+  };
+
   return (
     <div className="navbar bg-base-100 bg-base-100">
       <div className="navbar-start">
@@ -33,11 +45,11 @@ export default function Nav() {
           <div className="drawer-content">
             <label
               htmlFor="my-drawer"
-              className="btn btn-ghost btn-circle drawer-button"
+              className="btn btn-ghost btn-circle drawer-button z-20"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -60,6 +72,9 @@ export default function Nav() {
             <ul className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
               <li>
                 <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
               </li>
               <li>
                 <Link to="/products">Products</Link>
@@ -121,7 +136,7 @@ export default function Nav() {
         </label>
         {/* Light/Dark Toggle Button End */}
         {/* Cart Button */}
-        <div className="drawer w-auto drawer-end z-30">
+        <div className="drawer lg:w-auto w-[60px] drawer-end z-40 ">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label
@@ -142,84 +157,78 @@ export default function Nav() {
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                 />
               </svg>
+              {cartItemsCount > 0 && (
+                <span className="absolute top-0 right-3 lg:right-0  badge badge-sm badge-accent">
+                  {cartItemsCount}
+                </span>
+              )}
             </label>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side fixed ">
             <label
               htmlFor="my-drawer2"
               aria-label="close sidebar"
-              className="drawer-overlay"
+              className="drawer-overlay drawer-end"
             ></label>
-            <div className=" p-4 w-80 min-h-full bg-base-100 text-base-content">
-              <div className="mt-8">
-                <div className="flow-root">
-                  <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {cartItems &&
-                      cartItems.map((item) => (
-                        <CartItem item={item} key={item.id} />
-                      ))}
-                  </ul>
+            <div className="p-4 lg:w-90 min-h-screen  fixed bg-base-100 text-base-content fixed no-scrollbar ">
+              <div className="mt-1">
+                <div className=" ">
+                  {cartItems.length === 0 ? (
+                    <>
+                      <div className="mt-3 items-center justify-center grid grid-cols-1 mx-auto">
+                        <h1 className="font-bold text-center text-lg">
+                          CART IS EMPTY!
+                        </h1>
+                        <img
+                          className=" mt-10 mx-auto lg:h-[150px] lg:w-[200px] h-[130px] w-[150px] "
+                          src={peeker}
+                          alt="peeker"
+                        />
+                        <p className=" font-xs mt-3 text-base lg:font-medium text-center">
+                          Sammy is concerned :(
+                        </p>
+                        <p className=" font-xs lg:font-medium text-base text-center">
+                          Please purchase some icecream
+                        </p>
+                        <p className="font-xs lg:font-medium text-base text-center">
+                          to make her feel better!
+                        </p>
+                        <Link className="mx-auto " to="/products">
+                          <button className="btn mt-4 btn-wide btn-accent">
+                            Buy Icecream!
+                          </button>
+                        </Link>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="items-center justify-center grid grid-cols-1 mx-auto">
+                      <h1 className="text-center font-bold pb-10">Cart</h1>
+                      <ul className="-my-6 divide-y divide-gray-200">
+                        {cartItems.map((item) => (
+                          <CartItem item={item} key={item.id} />
+                        ))}
+                        {/* Total Section */}
+                        <div className="text-center justify-center">
+                          <p className="mt-6">
+                            Total:{" "}
+                            <span className="font-bold">
+                              ${calculateTotal().toFixed(2)}
+                            </span>
+                          </p>
+                          <button className="btn mt-4 btn-wide btn-accent ">
+                            Checkout
+                          </button>
+                        </div>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       {/* Cart Button End */}
-      {/* Account Button */}
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-            />
-          </svg>
-        </label>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <a>Profile</a>
-          </li>
-          <li>
-            <a>Settings</a>
-          </li>
-          <li>
-            <a>Logout</a>
-          </li>
-        </ul>
-      </div>
-      {/* Account Button End */}
-      {/* <button className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-            <span className="badge badge-xs badge-primary indicator-item"></span>
-          </div>
-        </button> */}
     </div>
   );
 }

@@ -383,10 +383,34 @@ div .bubble {
   }
 }
 /*--------  Icecream Animation End -------- */
+/*--------  Swiper -------- */
 .swiper {
   height: 400px;
 }
 .swiper-pagination-bullet {
-  background-color: #98FB98 !important;
-
+  background-color: #98fb98 !important;
 }
+/*--------  Swiper End -------- */
+/*--------  Alert Notification FadeIn/Out -------- */
+.alert {
+  animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*--------  Alert Notification FadeIn/Out End-------- */

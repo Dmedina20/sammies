@@ -26,11 +26,10 @@ function Card({ item }) {
           <div className="card-actions justify-left">
             <button
               onClick={addToCartHandler}
-              className="btn btn-secondary btn-outline"
+              className="btn btn-primary hover:btn-accent btn-outline"
             >
               Add to Cart
             </button>
-            <button className="btn btn-accent">Buy Now</button>
           </div>
         </div>
       </div>

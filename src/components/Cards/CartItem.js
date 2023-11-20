@@ -28,16 +28,16 @@ const CartItem = ({ item }) => {
         />
       </div>
 
-      <div className="ml-4 flex flex-1 flex-col">
+      <div className="ml-4 lg:flex flex-1 flex-col">
         <div>
-          <div className="flex justify-between font-bold ">
+          <div className="lg:flex justify-between font-bold ">
             <h3>
               <a href={item.name}>{item.name}</a>
             </h3>
-            <p className="ml-4">${item.price}</p>
+            <p className="lg:ml-4">${item.price}</p>
           </div>
         </div>
-        <div className="flex flex-1 items-end justify-between text-sm">
+        <div className="lg:flex lg:flex-1 items-end justify-between text-sm">
           <p className="text-gray-500">
             Qty{" "}
             <input
@@ -54,11 +54,11 @@ const CartItem = ({ item }) => {
             />
           </p>
 
-          <div className="flex">
+          <div className="flex float-right">
             <button
               type="button"
               className="font-medium text-primary hover:text-accent"
-              onClick={() => handleCartDelete(item.id)}
+              onClick={(e) => handleCartDelete(item.id, e)}
             >
               Remove
             </button>
