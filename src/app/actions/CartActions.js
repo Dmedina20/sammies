@@ -13,7 +13,6 @@ import {
   CART_ITEM_UPDATE_FAIL,
 } from "../constants/CartConstants";
 import db from "../../firebase/config";
-import nextId from "react-id-generator";
 import {
   collection,
   getDocs,
@@ -51,25 +50,48 @@ export const listCartItems = () => async (dispatch) => {
 };
 
 export const addProductToCart = (new_cart_item) => async (dispatch) => {
-  const newCartProduct = {};
-  const newItemId = nextId();
-
   try {
     dispatch({
       type: CART_ITEM_ADD_REQUEST,
     });
+
+    // Generate a unique identifier (you can use a random string, timestamp, etc.)
+    const uniqueIdentifier = "unique123"; // Replace with your logic to generate a unique identifier
+
+    // Combine the product ID and the unique identifier
+    const newItemId = `${new_cart_item.id}_${uniqueIdentifier}`;
 
     const cartItemRef = doc(db, "cartItems", newItemId);
 
     const docSnap = await getDoc(cartItemRef);
 
     if (docSnap.exists()) {
-      const existItem = docSnap.data();
-      dispatch(showErrorAlert(`${existItem.name} already in cart`));
-      dispatch({
-        type: CART_ITEM_ADD_SUCCESS,
-        payload: existItem,
-      });
+      const existingItem = docSnap.data();
+      if (existingItem.qtyInCart < 3) {
+        // If the quantity is less than 3, update the quantity
+        const updatedQty = existingItem.qtyInCart + 1;
+        await updateDoc(cartItemRef, { qtyInCart: updatedQty });
+
+        dispatch(
+          showSuccessAlert(
+            `${new_cart_item.name} Icecream quantity updated to ${updatedQty}`
+          )
+        );
+
+        dispatch({
+          type: CART_ITEM_ADD_SUCCESS,
+          payload: { ...existingItem, qtyInCart: updatedQty },
+        });
+      } else {
+        // If the quantity is already 3, show an alert
+        dispatch(
+          showErrorAlert(`${existingItem.name} already at max quantity`)
+        );
+        dispatch({
+          type: CART_ITEM_ADD_SUCCESS,
+          payload: existingItem,
+        });
+      }
     } else {
       console.log("No such document!");
       const cartItemData = {
@@ -91,7 +113,7 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
 
       dispatch({
         type: CART_ITEM_ADD_SUCCESS,
-        payload: newCartProduct,
+        payload: cartItemData,
       });
     }
   } catch (error) {
@@ -105,7 +127,6 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
     });
   }
 };
-
 export const updateCartQty = (cart_item_id, qty) => async (dispatch) => {
   try {
     dispatch({
@@ -136,9 +157,7 @@ export const deleteItemFromCart = (cart_item_name) => async (dispatch) => {
 
     await deleteDoc(doc(db, "cartItems", cart_item_name));
 
-    dispatch(showErrorAlert(` has been removed`));
-
-    window.location.reload();
+    dispatch(showErrorAlert(`Item has been removed from the cart`));
 
     dispatch({ type: CART_ITEM_REMOVE_SUCCESS });
   } catch (error) {

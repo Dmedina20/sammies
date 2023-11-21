@@ -7,15 +7,27 @@ import {
 } from "../../app/actions/CartActions";
 
 const CartItem = ({ item }) => {
-  const [stateQty, setStateQty] = React.useState(item.qtyInCart);
   const dispatch = useDispatch();
 
-  const handleCartDelete = (cartItemId) => {
-    dispatch(deleteItemFromCart(cartItemId));
+  const handleCartDelete = (e) => {
+    e.preventDefault(); // Prevent page refresh
+    // Check if the quantity is greater than 1 before decreasing
+    if (item.qtyInCart > 1) {
+      // Decrease the quantity by 1
+      dispatch(updateCartQty(item.id, item.qtyInCart - 1));
+    } else {
+      // If the quantity is 1 or less, remove the item from the cart
+      dispatch(deleteItemFromCart(item.id));
+    }
   };
 
-  const handleCartQty = (itemId, qty) => {
-    dispatch(updateCartQty(itemId, qty));
+  const handleCartQty = (newQty) => {
+    dispatch(updateCartQty(item.id, newQty));
+  };
+
+  // Calculate the total price for the item based on the quantity
+  const calculateItemTotal = () => {
+    return (item.price * item.qtyInCart).toFixed(2);
   };
 
   return (
@@ -34,7 +46,7 @@ const CartItem = ({ item }) => {
             <h3>
               <a href={item.name}>{item.name}</a>
             </h3>
-            <p className="lg:ml-4">${item.price}</p>
+            <p className="lg:ml-4">${calculateItemTotal()}</p>
           </div>
         </div>
         <div className="lg:flex lg:flex-1 items-end justify-between text-sm">
@@ -45,11 +57,10 @@ const CartItem = ({ item }) => {
               disabled
               type="number"
               min="1"
-              value={stateQty}
+              value={item.qtyInCart}
               onChange={(e) => {
-                setStateQty((prev) => Number(e.target.value));
-                console.log(stateQty);
-                handleCartQty(item.id, stateQty);
+                const newQty = Number(e.target.value);
+                handleCartQty(newQty);
               }}
             />
           </p>
@@ -58,7 +69,7 @@ const CartItem = ({ item }) => {
             <button
               type="button"
               className="font-medium text-primary hover:text-accent"
-              onClick={(e) => handleCartDelete(item.id, e)}
+              onClick={(e) => handleCartDelete(e)}
             >
               Remove
             </button>
@@ -68,4 +79,5 @@ const CartItem = ({ item }) => {
     </li>
   );
 };
+
 export default CartItem;

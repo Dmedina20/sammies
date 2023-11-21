@@ -13,6 +13,17 @@ export default function Nav() {
   const { cartItems } = cartItemsList;
   const [theme, setTheme] = useState("customLight");
   const cartItemsCount = cartItems.length;
+  const groupCartItems = () => {
+    const groupedItems = {};
+    cartItems.forEach((item) => {
+      if (groupedItems[item.id]) {
+        groupedItems[item.id].qtyInCart += item.qtyInCart;
+      } else {
+        groupedItems[item.id] = { ...item };
+      }
+    });
+    return Object.values(groupedItems);
+  };
 
   const toggleTheme = () => {
     setTheme(theme === "customDark" ? "customLight" : "customDark");
@@ -204,8 +215,8 @@ export default function Nav() {
                     <div className="items-center justify-center grid grid-cols-1 mx-auto">
                       <h1 className="text-center font-bold pb-10">Cart</h1>
                       <ul className="-my-6 divide-y divide-gray-200">
-                        {cartItems.map((item) => (
-                          <CartItem item={item} key={item.id} />
+                        {groupCartItems().map((groupedItem) => (
+                          <CartItem item={groupedItem} key={groupedItem.id} />
                         ))}
                         {/* Total Section */}
                         <div className="text-center justify-center">

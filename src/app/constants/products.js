@@ -1,6 +1,6 @@
 export const products = [
   {
-    id: "",
+    id: 1,
     name: "Vanilla",
     ingredients: ["Cream, ", "Sugar, ", "Vanilla extract"],
     price: 4.99,
@@ -8,7 +8,7 @@ export const products = [
     image: "https://i.imgur.com/xNq7ZU3.png",
   },
   {
-    id: "",
+    id: 2,
     name: "Chocolate",
     ingredients: ["Cream, ", "Sugar, ", "Cocoa powder"],
     price: 5.49,
@@ -16,7 +16,7 @@ export const products = [
     image: "https://i.imgur.com/CmjgnIZ.png",
   },
   {
-    id: "",
+    id: 3,
     name: "Strawberry",
     ingredients: ["Cream, ", "Sugar, ", "Strawberries"],
     price: 5.29,
@@ -24,7 +24,7 @@ export const products = [
     image: "https://i.imgur.com/RgkFfOp.png",
   },
   {
-    id: "",
+    id: 4,
     name: "Mint Chocolate Chip",
     ingredients: ["Cream, ", "Sugar, ", "Mint extract, ", "Chocolate chips"],
     price: 5.99,
@@ -32,7 +32,7 @@ export const products = [
     image: "https://i.imgur.com/IwpQAHn.png",
   },
   {
-    id: "",
+    id: 5,
     name: "Cookie Dough",
     ingredients: ["Cream, ", "Sugar, ", "Cookie dough chunks"],
     price: 6.49,
@@ -40,7 +40,7 @@ export const products = [
     image: "https://i.imgur.com/PWuwRBr.png",
   },
   {
-    id: "",
+    id: 6,
     name: "Rocky Road",
     ingredients: [
       "Cream, ",
@@ -54,7 +54,7 @@ export const products = [
     image: "https://i.imgur.com/2yzPCUj.png",
   },
   {
-    id: "",
+    id: 7,
     name: "Butter Pecan",
     ingredients: ["Cream, ", "Sugar, ", "Butter, ", "Pecans"],
     price: 6.89,
@@ -62,7 +62,7 @@ export const products = [
     image: "https://i.imgur.com/WUmhPDZ.png",
   },
   {
-    id: "",
+    id: 8,
     name: "Coffee",
     ingredients: ["Cream, ", "Sugar, ", "Coffee extract"],
     price: 5.79,
@@ -70,7 +70,7 @@ export const products = [
     image: "https://i.imgur.com/kjKcYT5.png",
   },
   {
-    id: "",
+    id: 9,
     name: "Caramel Swirl",
     ingredients: ["Cream, ", "Sugar, ", "Caramel swirl"],
     price: 6.59,
@@ -78,7 +78,7 @@ export const products = [
     image: "https://i.imgur.com/Y0r64rU.png",
   },
   {
-    id: "",
+    id: 10,
     name: "Pistachio",
     ingredients: ["Cream, ", "Sugar, ", "Pistachio nuts"],
     price: 6.69,
