@@ -10,7 +10,7 @@ function Card({ item }) {
   };
   return (
     <>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card w-[330px] lg:w-full mx-auto bg-base-100 shadow-xl">
         <figure>
           <img loading="lazy" src={item.image} alt="icecream" />
         </figure>
