@@ -230,12 +230,9 @@ export default function Nav() {
         </label>
         {/* Light/Dark Toggle Button End */}
         {/* Cart Button */}
-        <div className="drawer drawer-end lg:w-auto w-[60px] z-40 ">
+        <div className="drawer  drawer-end lg:w-auto w-[60px] z-40 ">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
-          <div
-            className="drawer-content disable-drag"
-            data-drawer="{draggable: false}"
-          >
+          <div className="drawer-content">
             <label
               htmlFor="my-drawer2"
               className="btn btn-ghost btn-circle drawer-button"
@@ -261,7 +258,7 @@ export default function Nav() {
               )}
             </label>
           </div>
-          <div className="drawer-side s">
+          <div className="drawer-side disable-drag">
             <label
               htmlFor="my-drawer2"
               aria-label="close sidebar"
