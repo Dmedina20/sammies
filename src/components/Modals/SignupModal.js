@@ -32,19 +32,19 @@ const SignupModal = () => {
             Welcome to SAMMIES!
           </h3>
           <img
-            className="lg:w-[150px] w-[110px] mx-auto mt-10"
+            className="lg:w-[150px] w-[110px] mx-auto lg:mt-10 mt-4"
             src={anya}
             alt="Welcome!"
           />
 
-          <p className="pt-10 tracking-tight line-clamp-3  text-xl text-center ">
+          <p className="lg:pt-10 pt-5 tracking-tight line-clamp-3  text-xl text-center ">
             Don't miss out on{" "}
             <span className="font-bold">
               exclusive deals and faster checkout
             </span>{" "}
             experiences!
           </p>
-          <p className=" pb-10  tracking-tight line-clamp-3  text-xl text-center ">
+          <p className=" lg:pb-10 pb-0 tracking-tight line-clamp-3  text-xl text-center ">
             <span
               onClick={closeModalAndNavigate}
               className="text-primary hover:text-accent cursor-pointer"
@@ -56,14 +56,14 @@ const SignupModal = () => {
           <div className="modal-action mx-auto grid grid-cols-2 overflow-hidden justify-center">
             <button
               onClick={closeModal}
-              className="btn btn-primary btn-outline hover:btn-error  "
+              className="btn sm:btn-sm lg:btn-md btn-outline btn-primary hover:btn-error  "
             >
               Not Now
             </button>
 
             <button
               onClick={closeModalAndNavigate}
-              className="btn btn-primary hover:btn-accent  "
+              className="btn sm:btn-sm lg:btn-md btn-primary hover:btn-accent  "
             >
               Sign Up
             </button>

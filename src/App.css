@@ -394,3 +394,6 @@ div .bubble {
   background-color: #98fb98 !important;
 }
 /*--------  Swiper End -------- */
+.disable-drag {
+  touch-action: none;
+}
