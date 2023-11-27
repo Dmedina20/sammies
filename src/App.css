@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
 /*--------  Waves -------- */
 .top-wave {
   position: relative;
