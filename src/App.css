@@ -3,8 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overflow-x: hidden;
+body,
+html {
+  overflow-x: hidden !important;
 }
 /*--------  Waves -------- */
 .top-wave {
