@@ -12,6 +12,10 @@ const SignupModal = () => {
     modal.close();
     navigate("/signup");
   };
+  const closeModal = () => {
+    const modal = document.getElementById("my_modal_1");
+    modal.close();
+  };
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -23,7 +27,7 @@ const SignupModal = () => {
   return (
     <>
       <dialog id="my_modal_1" className="modal cursor-default fixed z-20">
-        <div className="modal-box bg-base-100 text-base-content">
+        <div className="modal-box bg-base-100 text-base-content overflow-hidden">
           <h3 className="font-bold text-3xl text-center ">
             Welcome to SAMMIES!
           </h3>
@@ -33,12 +37,14 @@ const SignupModal = () => {
             alt="Welcome!"
           />
 
-          <p className="pt-10 pb-20 lg:pt-10 lg:pb-10 tracking-tight line-clamp-3  text-xl text-center ">
+          <p className="pt-10 tracking-tight line-clamp-3  text-xl text-center ">
             Don't miss out on{" "}
             <span className="font-bold">
-              exclusive deals, personalized recommendations, and faster checkout
+              exclusive deals and faster checkout
             </span>{" "}
-            experiences!{" "}
+            experiences!
+          </p>
+          <p className=" pb-10  tracking-tight line-clamp-3  text-xl text-center ">
             <span
               onClick={closeModalAndNavigate}
               className="text-primary hover:text-accent cursor-pointer"
@@ -47,15 +53,20 @@ const SignupModal = () => {
             </span>{" "}
             today to treat your taste buds!
           </p>
-          <div className="modal-action justify-center">
-            <form method="dialog">
-              <button
-                onClick={closeModalAndNavigate}
-                className="btn btn-primary hover:btn-accent btn-wide "
-              >
-                Sign Up
-              </button>
-            </form>
+          <div className="modal-action mx-auto grid grid-cols-2 overflow-hidden justify-center">
+            <button
+              onClick={closeModal}
+              className="btn btn-primary btn-outline hover:btn-error  "
+            >
+              Not Now
+            </button>
+
+            <button
+              onClick={closeModalAndNavigate}
+              className="btn btn-primary hover:btn-accent  "
+            >
+              Sign Up
+            </button>
           </div>
         </div>
       </dialog>
