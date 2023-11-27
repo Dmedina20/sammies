@@ -232,7 +232,7 @@ export default function Nav() {
         {/* Cart Button */}
         <div className="drawer drawer-end lg:w-auto w-[60px] z-40 ">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
+          <div className="drawer-content" data-drawer="{draggable: false}">
             <label
               htmlFor="my-drawer2"
               className="btn btn-ghost btn-circle drawer-button"
