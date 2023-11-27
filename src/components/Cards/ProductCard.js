@@ -15,7 +15,7 @@ function Card({ item }) {
           <img loading="lazy" src={item.image} alt="icecream" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title justify-left">{item.name}</h2>
+          <h2 className="card-title justify-left">{item.name} </h2>
           {item.containsNuts && (
             <div className="badge badge-outline">Contains Nuts</div>
           )}

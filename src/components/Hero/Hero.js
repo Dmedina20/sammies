@@ -29,9 +29,9 @@ function Hero() {
               The <span className="underline-word font-bold">treat</span> that
               brings back childhood memories
             </p>
-            <button className="btn btn-accent">
-              <Link to="/products">Shop Now</Link>
-            </button>
+            <Link to="/products">
+              <button className="btn btn-accent">Shop Now</button>
+            </Link>
           </div>
         </div>
       </div>

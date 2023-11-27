@@ -12,7 +12,7 @@ import {
   CART_ITEM_UPDATE_SUCCESS,
   CART_ITEM_UPDATE_FAIL,
 } from "../constants/CartConstants";
-import db from "../../firebase/config";
+import { db } from "../../firebase/config";
 import {
   collection,
   getDocs,
