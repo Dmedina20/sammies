@@ -6,6 +6,10 @@ import CartItem from "../Cards/CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { listCartItems } from "../../app/actions/CartActions";
 import peeker from "../../images/anyaPeeker.png";
+import { onAuthStateChanged } from "firebase/auth";
+import { login, logout } from "../../app/features/userSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../app/firebase/config";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -13,6 +17,26 @@ export default function Nav() {
   const { cartItems } = cartItemsList;
   const [theme, setTheme] = useState("customLight");
   const cartItemsCount = cartItems.length;
+  const [userLoaded, setUserLoaded] = useState(false);
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(login({ user }));
+      } else {
+        dispatch(logout());
+      }
+      setUserLoaded(true);
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    signOut(auth);
+  };
 
   const groupCartItems = () => {
     const groupedItems = {};
@@ -27,16 +51,15 @@ export default function Nav() {
   };
 
   const toggleTheme = () => {
-    setTheme(theme === "customDark" ? "customLight" : "customDark");
+    setTheme((prevTheme) =>
+      prevTheme === "customDark" ? "customLight" : "customDark"
+    );
   };
 
   useEffect(() => {
     dispatch(listCartItems());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(listCartItems());
   }, [dispatch, cartItems]);
+
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
@@ -147,13 +170,13 @@ export default function Nav() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="w-5 h-5"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"
                     />
                   </svg>{" "}
@@ -179,6 +202,48 @@ export default function Nav() {
                   About
                 </Link>
               </li>
+              {!user && userLoaded && (
+                <li className="sammies">
+                  <Link to="/login">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                      />
+                    </svg>{" "}
+                    Login
+                  </Link>
+                </li>
+              )}
+              {user && userLoaded && (
+                <li className="sammies">
+                  <Link onClick={handleLogout} to="/">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                      />
+                    </svg>{" "}
+                    Logout
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -200,13 +265,13 @@ export default function Nav() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
               />
             </svg>
@@ -216,13 +281,13 @@ export default function Nav() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
               />
             </svg>
@@ -230,34 +295,33 @@ export default function Nav() {
         </label>
         {/* Light/Dark Toggle Button End */}
         {/* Cart Button */}
-        <div className="drawer  drawer-end lg:w-auto w-[60px] z-40 ">
+        <label
+          htmlFor="my-drawer2"
+          className="btn btn-ghost btn-circle drawer-button relative"
+        >
+          {cartItemsCount > 0 && (
+            <span className="absolute overflow-hideen top-0 right-0  badge badge-sm badge-accent">
+              {cartItemsCount}
+            </span>
+          )}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            />
+          </svg>
+        </label>
+        <div className="drawer drawer-end w-[0]  z-40 ">
           <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            <label
-              htmlFor="my-drawer2"
-              className="btn btn-ghost btn-circle drawer-button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                />
-              </svg>
-              {cartItemsCount > 0 && (
-                <span className="absolute top-0 right-3 lg:right-0  badge badge-sm badge-accent">
-                  {cartItemsCount}
-                </span>
-              )}
-            </label>
-          </div>
+          <div className="drawer-content"></div>
           <div className="drawer-side disable-drag">
             <label
               htmlFor="my-drawer2"
@@ -323,6 +387,17 @@ export default function Nav() {
         </div>
       </div>
       {/* Cart Button End */}
+      {/* User Avatar */}
+      {user && userLoaded && (
+        <div className="avatar placeholder btn btn-ghost btn-circle ">
+          <div className="bg-primary mx-auto text-black rounded-full w-8">
+            <span className="mx-auto text-l">
+              {user.displayName ? user.displayName.charAt(0).toUpperCase() : ""}
+            </span>
+          </div>
+        </div>
+      )}
+      {/* User Avatar End */}
     </div>
   );
 }

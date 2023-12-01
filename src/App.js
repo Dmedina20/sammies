@@ -8,7 +8,9 @@ import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 import AlertSuccess from "./components/Alerts/AlertSuccess";
 import SignupModal from "./components/Modals/SignupModal";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProfileCreation from "./pages/ProfileCreation";
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
       <AlertSuccess />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signup/createprofile" element={<ProfileCreation />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
