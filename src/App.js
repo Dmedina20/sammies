@@ -11,8 +11,10 @@ import SignupModal from "./components/Modals/SignupModal";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProfileCreation from "./pages/ProfileCreation";
-
+import Profile from "./pages/Profile";
+import { useSelector } from "react-redux";
 function App() {
+  const user = useSelector((state) => state.user.user);
   return (
     <>
       {" "}
@@ -21,15 +23,28 @@ function App() {
       <div className="flex justify-center">
         <AlertSuccess />
       </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signup/createprofile" element={<ProfileCreation />} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/products" element={<Products />} />
-      </Routes>
+      {!user ? (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/createprofile" element={<ProfileCreation />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/createprofile" element={<ProfileCreation />} />
+          <Route path={`/profile/${user.uid}`} element={<Profile />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+        </Routes>
+      )}
       <Footer />
     </>
   );
