@@ -14,8 +14,8 @@ function ChooseUs() {
       <div className=" overflow-y-hidden lg:py-30 py-40 lg:flex lg:justify-center lg:items-center">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-40 lg:gap-30  justify-center">
           <MeltingIceCream />
-          <div className="">
-            <p className="indent-1 font-medium italic antialiased  leading-loose text-xl max-w-md lg:text-left text-center  ">
+          <div className="mx-auto">
+            <p className="indent-1 font-medium italic antialiased leading-loose text-xl max-w-md lg:text-left text-center  ">
               Where every scoop tells a story of indulgence and delight! At
               <span className="font-bold"> SAMMIES</span>, we take pride in
               crafting more than just ice cream; we create moments of pure joy

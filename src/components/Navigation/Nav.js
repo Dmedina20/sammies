@@ -202,6 +202,7 @@ export default function Nav() {
                   About
                 </Link>
               </li>
+
               {!user && userLoaded && (
                 <li className="sammies">
                   <Link to="/login">
@@ -223,6 +224,7 @@ export default function Nav() {
                   </Link>
                 </li>
               )}
+
               {user && userLoaded && (
                 <li className="sammies">
                   <Link onClick={handleLogout} to="/">
@@ -251,7 +253,7 @@ export default function Nav() {
       </div>
       {/* Logo Center */}
       <div className="navbar-center">
-        <Link to="/" className=" normal-case text-xl">
+        <Link to="/">
           <img className="w-20 h-20" src={logo} alt="Logo" />
         </Link>
       </div>
@@ -297,10 +299,10 @@ export default function Nav() {
         {/* Cart Button */}
         <label
           htmlFor="my-drawer2"
-          className="btn btn-ghost btn-circle drawer-button relative"
+          className="btn btn-ghost btn-circle drawer-button "
         >
           {cartItemsCount > 0 && (
-            <span className="absolute overflow-hideen top-0 right-0  badge badge-sm badge-accent">
+            <span className="absolute overflow-hidden top-6 right-14 badge badge-sm badge-accent">
               {cartItemsCount}
             </span>
           )}
@@ -385,19 +387,21 @@ export default function Nav() {
             </div>
           </div>
         </div>
+        {/* User Avatar */}
+        {user && userLoaded && (
+          <div className="avatar placeholder btn btn-ghost btn-circle ">
+            <div className="bg-primary mx-auto text-black rounded-full w-8">
+              <span className="mx-auto text-l">
+                {user.displayName
+                  ? user.displayName.charAt(0).toUpperCase()
+                  : ""}
+              </span>
+            </div>
+          </div>
+        )}
+        {/* User Avatar End */}
       </div>
       {/* Cart Button End */}
-      {/* User Avatar */}
-      {user && userLoaded && (
-        <div className="avatar placeholder btn btn-ghost btn-circle ">
-          <div className="bg-primary mx-auto text-black rounded-full w-8">
-            <span className="mx-auto text-l">
-              {user.displayName ? user.displayName.charAt(0).toUpperCase() : ""}
-            </span>
-          </div>
-        </div>
-      )}
-      {/* User Avatar End */}
     </div>
   );
 }

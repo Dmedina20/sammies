@@ -3,9 +3,16 @@ import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../app/firebase/config";
-import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  getDoc,
+} from "firebase/firestore";
 import { login } from "../../app/features/userSlice";
 import "../../App.css";
+import { showErrorAlert } from "../../app/actions/AlertActions";
 
 const AuthSignup = () => {
   const dispatch = useDispatch();
@@ -14,6 +21,7 @@ const AuthSignup = () => {
   const [password, setPassword] = useState("");
   const [username, setUserName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isEmailTaken, setIsEmailTaken] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -23,6 +31,17 @@ const AuthSignup = () => {
 
   const handleSignup = async () => {
     try {
+      // Check if email is taken
+      const db = getFirestore();
+      const userDocRef = doc(collection(db, "users"), email);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        setIsEmailTaken(true);
+        return;
+      }
+
+      // If email is not taken, proceed with signup
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -33,19 +52,19 @@ const AuthSignup = () => {
       await updateProfile(user, { displayName: username });
 
       // Store additional user information in Users collection
-      const db = getFirestore();
-      await setDoc(doc(collection(db, "users"), user.uid), {
+      await setDoc(doc(collection(db, "users"), email), {
         displayName: username,
         email: email,
         password: password,
       });
+
       // Dispatch login action to update the user state
       dispatch(login({ user }));
 
       // Navigate to the create profile page
       navigate("/signup/createprofile");
     } catch (error) {
-      console.error("Error signing up:", error.message);
+      dispatch(showErrorAlert(`Email has already been taken`));
     }
   };
   return (
@@ -75,7 +94,10 @@ const AuthSignup = () => {
                 placeholder=""
                 className="input input-bordered input-sm w-full"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setIsEmailTaken(false);
+                }}
               />
             </label>
             <label className="form-control w-full max-w-xs">

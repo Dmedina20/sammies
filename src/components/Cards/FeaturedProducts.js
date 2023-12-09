@@ -24,7 +24,7 @@ function Products() {
   };
   return (
     <>
-      <div className="Featured-Product-Header overflow-hidden ">
+      <div className="Featured-Product-Header mx-auto overflow-hidden ">
         <h3 className="text-center mb-8 text-4xl font-bold ">
           <span className="underline-word">Featured Products</span>
         </h3>

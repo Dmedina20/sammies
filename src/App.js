@@ -18,7 +18,9 @@ function App() {
       {" "}
       <Nav />
       <SignupModal />
-      <AlertSuccess />
+      <div className="flex justify-center">
+        <AlertSuccess />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
