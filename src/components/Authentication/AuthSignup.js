@@ -21,27 +21,16 @@ const AuthSignup = () => {
   const [password, setPassword] = useState("");
   const [username, setUserName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isEmailTaken, setIsEmailTaken] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const isSignupDisabled = password && username === "";
+  const isSignupDisabled = password === "" || username === "";
 
   const handleSignup = async () => {
     try {
-      // Check if email is taken
-      const db = getFirestore();
-      const userDocRef = doc(collection(db, "users"), email);
-      const userDoc = await getDoc(userDocRef);
-
-      if (userDoc.exists()) {
-        setIsEmailTaken(true);
-        return;
-      }
-
-      // If email is not taken, proceed with signup
+      // Proceed with signup
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -51,8 +40,9 @@ const AuthSignup = () => {
       // Update user profile with display name
       await updateProfile(user, { displayName: username });
 
-      // Store additional user information in Users collection
-      await setDoc(doc(collection(db, "users"), email), {
+      // Store additional user information in Users collection using user UID as doc ID
+      const db = getFirestore();
+      await setDoc(doc(collection(db, "users"), user.uid), {
         displayName: username,
         email: email,
         password: password,
@@ -64,7 +54,7 @@ const AuthSignup = () => {
       // Navigate to the create profile page
       navigate("/signup/createprofile");
     } catch (error) {
-      dispatch(showErrorAlert(`Email has already been taken`));
+      dispatch(showErrorAlert(`Error during signup: ${error.message}`));
     }
   };
   return (
@@ -96,7 +86,6 @@ const AuthSignup = () => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setIsEmailTaken(false);
                 }}
               />
             </label>

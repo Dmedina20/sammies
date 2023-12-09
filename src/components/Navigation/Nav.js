@@ -383,12 +383,12 @@ export default function Nav() {
                 />
               ) : (
                 // If user doesn't have a photoURL, display the avatar
-                <div className="bg-primary mx-auto text-black rounded-full w-8">
-                  <span className="mx-auto text-l">
+                <div className="bg-primary rounded-full  w-8 h-8">
+                  <div className=" text-black items-center text-center justify-center flex  text-xl">
                     {user.displayName
                       ? user.displayName.charAt(0).toUpperCase()
                       : ""}
-                  </span>
+                  </div>
                 </div>
               )}
             </Link>
