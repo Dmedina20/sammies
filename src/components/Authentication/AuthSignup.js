@@ -1,15 +1,14 @@
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../app/firebase/config";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import { login } from "../../app/features/userSlice";
 import "../../App.css";
 
 const AuthSignup = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,25 +18,35 @@ const AuthSignup = () => {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   const isSignupDisabled = password && username === "";
-  /**
-   * The handleSignup function creates a new user account with email and password, and then updates the
-   * user's profile with a display name before navigating to the create profile page.
-   */
-  const handleSignup = () => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        unsubscribe();
-        updateProfile(user, { displayName: username })
-          .then(() => {
-            navigate("/signup/createprofile");
-          })
-          .catch((error) => alert(error));
-      }
-    });
-    createUserWithEmailAndPassword(auth, email, password).catch((error) =>
-      alert(error)
-    );
+
+  const handleSignup = async () => {
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Update user profile with display name
+      await updateProfile(user, { displayName: username });
+
+      // Store additional user information in Users collection
+      const db = getFirestore();
+      await setDoc(doc(collection(db, "users"), user.uid), {
+        displayName: username,
+        email: email,
+        password: password,
+      });
+      // Dispatch login action to update the user state
+      dispatch(login({ user }));
+
+      // Navigate to the create profile page
+      navigate("/signup/createprofile");
+    } catch (error) {
+      console.error("Error signing up:", error.message);
+    }
   };
   return (
     <>

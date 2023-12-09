@@ -55,11 +55,8 @@ export const addProductToCart = (new_cart_item) => async (dispatch) => {
       type: CART_ITEM_ADD_REQUEST,
     });
 
-    // Generate a unique identifier (you can use a random string, timestamp, etc.)
-    const uniqueIdentifier = "unique123"; // Replace with your logic to generate a unique identifier
-
     // Combine the product ID and the unique identifier
-    const newItemId = `${new_cart_item.id}_${uniqueIdentifier}`;
+    const newItemId = `${new_cart_item.id}`;
 
     const cartItemRef = doc(db, "cartItems", newItemId);
 

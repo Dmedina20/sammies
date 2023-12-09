@@ -21,7 +21,7 @@ export default function Nav() {
   const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const updatedState = onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(login({ user }));
       } else {
@@ -30,7 +30,7 @@ export default function Nav() {
       setUserLoaded(true);
     });
 
-    return () => unsubscribe();
+    return () => updatedState();
   }, [dispatch]);
 
   const handleLogout = () => {
