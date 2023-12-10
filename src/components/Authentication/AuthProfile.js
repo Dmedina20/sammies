@@ -53,7 +53,7 @@ const AuthProfile = () => {
         if (userDoc.exists()) {
           const userDataFromFirestore = userDoc.data(); // Fetch user data from Firestore
 
-          // Upload profile picture to Firebase Storage
+          // Update profile picture if a new one is provided
           if (pictureFile) {
             const storage = getStorage();
             const storageRef = ref(storage, `${currentUser.uid}.png`);
@@ -78,25 +78,44 @@ const AuthProfile = () => {
                 photoURL: downloadURL,
               })
             );
-          } else {
-            await setDoc(
-              userDocRef,
-              {
-                firstName: firstname,
-                middleName: middlename,
-                lastName: lastname,
-                phoneNumber: phoneNumber,
-                birthDay: birthday,
-              },
-              { merge: true }
-            );
-
-            // Dispatch updateUserDataSuccess action to update the user state
-            dispatch(updateUserDataSuccess(userDataFromFirestore));
-
-            // Dispatch fetchUserSuccess action to indicate successful data fetching
-            dispatch(fetchUserSuccess(userDataFromFirestore));
           }
+
+          // Update additional fields
+          await setDoc(
+            userDocRef,
+            {
+              firstName: firstname,
+              middleName: middlename,
+              lastName: lastname,
+              phoneNumber: phoneNumber,
+              birthDay: birthday,
+            },
+            { merge: true }
+          );
+
+          // Dispatch updateUserDataSuccess action to update the user state
+          dispatch(
+            updateUserDataSuccess({
+              ...userDataFromFirestore,
+              firstName: firstname,
+              middleName: middlename,
+              lastName: lastname,
+              phoneNumber: phoneNumber,
+              birthDay: birthday,
+            })
+          );
+
+          // Dispatch fetchUserSuccess action to indicate successful data fetching
+          dispatch(
+            fetchUserSuccess({
+              ...userDataFromFirestore,
+              firstName: firstname,
+              middleName: middlename,
+              lastName: lastname,
+              phoneNumber: phoneNumber,
+              birthDay: birthday,
+            })
+          );
         } else {
           // Dispatch fetchUserSuccess action with an empty payload if the user document doesn't exist
           dispatch(fetchUserSuccess({}));

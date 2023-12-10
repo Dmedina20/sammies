@@ -372,14 +372,14 @@ export default function Nav() {
         </div>
         {/* User Avatar */}
         {user && userLoaded && (
-          <div className="avatar placeholder btn btn-ghost btn-circle">
+          <div className="avatar overflow-hidden placeholder btn btn-ghost btn-circle">
             <Link to={`/profile/${user.uid}`}>
               {user.photoURL ? (
                 // If user has a photoURL, display the image
                 <img
                   src={user.photoURL}
                   alt={user.displayName}
-                  className="rounded-full w-5 h-5"
+                  className="rounded-full   w-5 h-5"
                 />
               ) : (
                 // If user doesn't have a photoURL, display the avatar
