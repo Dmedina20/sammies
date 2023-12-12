@@ -42,7 +42,7 @@ const AlertSuccess = () => {
           style={{
             animation: `${fadeIn} 0.5s ease-in-out, ${fadeOut} 0.5s ease-in-out 2s forwards`,
           }}
-          className="alert bg-accent lg:w-[500px] w-[300px] ml-10 lg:ml-3 fixed z-20"
+          className="alert bg-accent lg:w-[500px] w-[300px] lg:ml-3 fixed z-20"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
