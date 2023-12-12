@@ -190,6 +190,31 @@ div .bubble {
 .sammies {
   position: relative;
 }
+.sammies-title::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+.sammies-title:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.sammies-title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: #98fb98;
+  z-index: -1;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+.sammies {
+  position: relative;
+}
 .underline-word {
   border-bottom: 3px solid #98fb98;
   display: inline-block;
