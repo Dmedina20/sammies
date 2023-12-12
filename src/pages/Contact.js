@@ -1,3 +1,9 @@
+import ContactUs from "../components/Sections/ContactUs";
+
 export default function Contact() {
-  return <h1>Contact</h1>;
+  return (
+    <>
+      <ContactUs />{" "}
+    </>
+  );
 }
