@@ -24,7 +24,7 @@ function Hero() {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <img src={anya} alt="anya" className=" " />
-            <h1 className="sammies-title mb-5 text-7xl font-bold">SAMMIES</h1>
+            <h1 className="mb-5 text-7xl font-bold">SAMMIES</h1>
             <p className="mb-5 text-3xl">
               The <span className="underline-word font-bold">treat</span> that
               brings back childhood memories
