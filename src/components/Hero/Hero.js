@@ -2,7 +2,7 @@ import "../../App.css";
 import anya from "../../images/anya.png";
 import circles from "../../images/circles.svg";
 import { Link } from "react-router-dom";
-const Bubble = () => <span className="bubble"></span>;
+const Bubble = () => <span className="bubble overflow-hidden"></span>;
 function Hero() {
   return (
     <>
