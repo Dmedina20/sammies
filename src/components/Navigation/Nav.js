@@ -21,6 +21,14 @@ export default function Nav() {
   const [userLoaded, setUserLoaded] = useState(false);
   const user = useSelector((state) => state.user.user);
 
+  const handleItemClick = () => {
+    // Close the drawer by unchecking the checkbox
+    const checkbox = document.getElementById("main-drawer");
+    if (checkbox) {
+      checkbox.checked = false;
+    }
+  };
+
   useEffect(() => {
     const updatedState = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -78,10 +86,10 @@ export default function Nav() {
       <div className="navbar-start">
         {/* Dropdown Menu */}
         <div className="drawer z-40">
-          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+          <input id="main-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label
-              htmlFor="my-drawer"
+              htmlFor="main-drawer"
               className="btn btn-ghost btn-circle drawer-button z-20"
             >
               <svg
@@ -108,7 +116,7 @@ export default function Nav() {
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-100 text-base-content text-center ">
               <li className="sammies">
-                <Link to="/">
+                <Link to="/" onClick={handleItemClick}>
                   {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +136,7 @@ export default function Nav() {
                 </Link>
               </li>
               <li className="sammies">
-                <Link to="/products">
+                <Link to="/products" onClick={handleItemClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -148,7 +156,7 @@ export default function Nav() {
               </li>
 
               <li className="sammies">
-                <Link to="/contact">
+                <Link to="/contact" onClick={handleItemClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -167,7 +175,7 @@ export default function Nav() {
                 </Link>
               </li>
               <li className="sammies">
-                <Link to="/about-us">
+                <Link to="/about-us" onClick={handleItemClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -188,7 +196,7 @@ export default function Nav() {
 
               {!user && userLoaded && (
                 <li className="sammies">
-                  <Link to="/login">
+                  <Link to="/login" onClick={handleItemClick}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -210,7 +218,13 @@ export default function Nav() {
 
               {user && userLoaded && (
                 <li className="sammies">
-                  <Link onClick={handleLogout} to="/">
+                  <Link
+                    onClick={() => {
+                      handleItemClick();
+                      handleLogout();
+                    }}
+                    to="/"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -364,6 +378,20 @@ export default function Nav() {
                             </span>
                           </p>
                           <button className="btn mt-4 btn-wide btn-accent ">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"
+                              />
+                            </svg>
                             Checkout
                           </button>
                         </div>

@@ -55,7 +55,7 @@ const ContactSection = () => {
               type="text"
               id="name"
               value={name}
-              className="shadow-sm border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+              className="input input-bordered input-md w-full shadow-md"
               placeholder="Sammie"
               required
               onChange={(e) => setName(e.target.value)}
@@ -69,7 +69,7 @@ const ContactSection = () => {
               type="email"
               id="email"
               value={email}
-              className="shadow-sm border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+              className="input input-bordered input-md w-full shadow-md "
               placeholder="name@sammies.com"
               required
               onChange={(e) => setEmail(e.target.value)}
@@ -86,7 +86,7 @@ const ContactSection = () => {
               type="text"
               id="subject"
               value={subject}
-              className="block p-3 w-full text-sm  rounded-lg border border-gray-300 shadow-sm "
+              className="input input-bordered input-md w-full shadow-md "
               placeholder="Let us know how we can help you"
               required
               onChange={(e) => setSubject(e.target.value)}
@@ -103,17 +103,33 @@ const ContactSection = () => {
               id="message"
               value={message}
               rows="6"
-              className="block p-2.5 w-full text-sm  rounded-lg shadow-sm border border-gray-300 "
+              className="textarea textarea-bordered h-24 w-full text-sm shadow-md  "
               placeholder="Leave a comment..."
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
-          <button
-            type="submit"
-            className="py-3 px-5 text-center btn btn-primary"
-          >
-            Send message
-          </button>
+          <div className="mx-auto items-center justify-center text-center">
+            <button
+              type="submit"
+              className="py-3 px-5 text-center btn btn-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                />
+              </svg>
+              Send message
+            </button>
+          </div>
         </form>
       </div>
     </section>

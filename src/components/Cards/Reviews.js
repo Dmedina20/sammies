@@ -8,9 +8,9 @@ function Reviews({ text, name, title, image }) {
           "{text}"
         </p>
 
-        <footer className="flex items-center gap-3 mt-6 md:mt-12">
+        <footer className="flex items-center gap-3 mt-6 md:mt-12 ">
           <img
-            className=" w-12 h-12 border rounded-full border-black/10"
+            className="w-12 h-12 rounded-full"
             src={image}
             alt="pic"
             loading="lazy"
