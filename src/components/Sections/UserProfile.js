@@ -1,13 +1,7 @@
 import "../../App.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchUserRequest,
-  fetchUserSuccess,
-  fetchUserFailure,
-  updateUserDataSuccess,
-  fetchUserData,
-} from "../../app/features/userSlice";
+import { fetchUserData } from "../../app/features/userSlice";
 import ref from "../../images/ref.png";
 
 function UserProfile() {

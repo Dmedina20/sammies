@@ -3,13 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../app/firebase/config";
-import {
-  getFirestore,
-  collection,
-  doc,
-  setDoc,
-  getDoc,
-} from "firebase/firestore";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import { login } from "../../app/features/userSlice";
 import "../../App.css";
 import { showErrorAlert } from "../../app/actions/AlertActions";

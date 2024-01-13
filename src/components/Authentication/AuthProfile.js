@@ -1,7 +1,7 @@
 import "../../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../app/firebase/config";
@@ -24,7 +24,7 @@ const AuthProfile = () => {
   const [phoneNumber, setphoneNumber] = useState("");
   const [birthday, setbirthDay] = useState("");
   const user = useSelector((state) => state.user.user);
-  const userData = useSelector((state) => state.user.userData);
+
   const isButtonDisabled = !firstname || !lastname || !birthday;
   useEffect(() => {
     if (user) {

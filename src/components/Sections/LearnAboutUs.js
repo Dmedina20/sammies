@@ -1,4 +1,5 @@
 import "../../App.css";
+import { Link } from "react-router-dom";
 
 function Learn() {
   return (
@@ -15,9 +16,11 @@ function Learn() {
             </p>
 
             <div className="hero-content justify-center">
-              <button className="btn btn-accent lg:font-bold">
-                Learn More
-              </button>
+              <Link to="/about-us">
+                <button className="btn btn-accent lg:font-bold">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
         </div>

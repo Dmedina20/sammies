@@ -6,10 +6,10 @@ function Footer() {
     <>
       <footer className="footer footer-center p-10 bg-base-100 text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
-          <Link to="/About" className="link link-hover">
+          <Link to="/about-us" className="link link-hover">
             About us
           </Link>
-          <Link to="/Contact" className="link link-hover">
+          <Link to="/contact" className="link link-hover">
             Contact
           </Link>
         </nav>
