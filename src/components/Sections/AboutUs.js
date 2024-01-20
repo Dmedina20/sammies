@@ -4,9 +4,9 @@ function AboutUs() {
   return (
     <>
       <div className=" py-16">
-        <div className="container mx-auto text-center ">
-          <h2 className="text-3xl font-bold mb-6">About Us</h2>
-          <p className="text-lg text-left mb-8">
+        <div className="container mx-auto lg:text-left text-center ">
+          <h2 className="text-3xl text-center font-bold mb-6">About Us</h2>
+          <p className="lg:text-lg text-md  mb-8">
             SAMMIES is your ultimate destination for indulging in the finest
             frozen delights. As an online ice cream store, we pride ourselves on
             delivering a delectable array of handcrafted ice cream creations
@@ -20,7 +20,7 @@ function AboutUs() {
             frozen bliss, where every SAMMIES treat is a celebration of sweet
             moments and irresistible indulgence.
           </p>
-          <p className="text-lg text-left ">
+          <p className="lg:text-lg text-md  ">
             Join us in the celebration of frozen bliss, where SAMMIES is more
             than a treat—it's a destination for indulgence and sweet memories.
             Your satisfaction is our priority, and we look forward to bringing a

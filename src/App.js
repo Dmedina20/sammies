@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Products from "./pages/Products";
 import AlertSuccess from "./components/Alerts/AlertSuccess";
 import SignupModal from "./components/Modals/SignupModal";
 import Login from "./pages/Login";
@@ -31,7 +30,6 @@ function App() {
           <Route path="/signup/createprofile" element={<ProfileCreation />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
         </Routes>
       ) : (
         <Routes>
@@ -42,7 +40,6 @@ function App() {
           <Route path={`/profile/${user.uid}`} element={<Profile />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
         </Routes>
       )}
       <Footer />
