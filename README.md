@@ -1,4 +1,4 @@
-# Sammies Ice Cream - Personal Project for fun! (IN DEVELOPMENT)
+# Sammies Ice Cream 
 
 [Live Demo](https://sammies.netlify.app)
 
